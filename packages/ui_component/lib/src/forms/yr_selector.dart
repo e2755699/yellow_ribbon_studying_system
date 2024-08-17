@@ -7,8 +7,10 @@ import 'package:ui_component/src/forms/yr_text.dart';
 class YrSelector extends StatelessWidget {
   final String data;
   final List<String> items;
+  final YrTheme theme;
 
-  const YrSelector(this.data, {super.key, required this.items});
+  const YrSelector(this.data,
+      {super.key, required this.items, this.theme = YrTheme.dark});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,8 @@ class YrSelector extends StatelessWidget {
       child: Row(
         children: [
           YrText(data),
-          Gap(YrDesignToken.form.rowGap)
-          ,DropdownMenu(
+          Gap(theme.form.rowGap),
+          DropdownMenu(
               dropdownMenuEntries: items.map((item) {
             return DropdownMenuEntry(value: items.indexOf(item), label: item);
           }).toList()),

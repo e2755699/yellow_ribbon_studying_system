@@ -4,16 +4,20 @@ import 'package:ui_component/src/design_token.dart';
 class YrText extends StatelessWidget {
   final String data;
 
-  final Color color;
+  final Color? color;
 
-  YrText(this.data, {super.key, color})
-      : color = color ?? YrDesignToken.form.color;
+  const YrText(this.data, {super.key, this.color});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       data,
-      style: const TextStyle().copyWith(color: color),
+      style: const TextStyle().copyWith(
+          color: color ??
+              YrTheme.fromSystem(
+                      Theme.of(context).brightness == Brightness.dark)
+                  .form
+                  .color),
     );
   }
 }
