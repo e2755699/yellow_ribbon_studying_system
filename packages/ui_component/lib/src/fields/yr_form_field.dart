@@ -27,14 +27,14 @@ class DefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       data,
-      style: const TextStyle().copyWith(color: Color(0xFFE24429)),
+      style: const TextStyle().copyWith(color: YrDesignToken.formText.color),
     );
   }
 }
 
 
-// enum YrDesignToken{
-//   formText;
-//
-//   get color => const Color(0xFFE24429);
-// }
+enum YrDesignToken{
+  formText;
+
+  get color => const Color(0xFFE24429);
+}
