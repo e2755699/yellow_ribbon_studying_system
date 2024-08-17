@@ -35,12 +35,14 @@ class StudentInfoScreen extends StatelessWidget {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const YrFormField("姓名"),
-            const YrFormField("學校"),
-            YrRadio("性別",
+            const YrTextField("姓名"),
+            YrRadio(
+              "性別",
               map: const ["m", "w"],
               defaultValue: 'm',
             ),
+            const YrTextField("學校"),
+            YrSelector("年級", items: ["一年級","二年級","三年級","四年級","五年級","六年級",],),
           ],
         ),
       ),
@@ -52,3 +54,4 @@ class StudentInfoScreen extends StatelessWidget {
     );
   }
 }
+
