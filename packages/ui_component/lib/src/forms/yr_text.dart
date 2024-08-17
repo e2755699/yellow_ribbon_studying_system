@@ -6,7 +6,7 @@ class YrText extends StatelessWidget {
 
   final Color color;
 
-  YrText({super.key, required this.data, color})
+  YrText(this.data, {super.key, color})
       : color = color ?? YrDesignToken.form.color;
 
   @override
