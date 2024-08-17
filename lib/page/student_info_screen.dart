@@ -16,7 +16,7 @@ class StudentInfoScreen extends StatelessWidget {
         // the App.build method, and use it to set our appbar title.
         title: const Text("學生基本資料"),
       ),
-      body: const Center(
+      body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -35,12 +35,17 @@ class StudentInfoScreen extends StatelessWidget {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            YrFormField(),
+            const YrFormField("姓名"),
+            const YrFormField("學校"),
+            YrRadio("性別",
+              map: const ["m", "w"],
+              defaultValue: 'm',
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: () {},
         tooltip: 'add',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
