@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_component/src/design_token.dart';
-import 'package:ui_component/src/forms/yr_form_field.dart';
+import 'package:ui_component/src/forms/yr_form_warp.dart';
+import 'package:ui_component/src/forms/yr_text_field.dart';
 import 'package:ui_component/src/forms/yr_text.dart';
 
 class YrRadio extends StatelessWidget {
@@ -15,20 +16,17 @@ class YrRadio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: YrDesignToken.form.width,
+    return YrFormWarp(
       child: Row(
         children: [
-          YrText(
-            data: data,
-          ),
+          YrText(data),
           ValueListenableBuilder(
               valueListenable: groupValue,
               builder: (context, data, child) {
                 return Row(
                   children: map
                       .map((value) => Radio<String>(
-                      activeColor : YrDesignToken.form.color,
+                          activeColor: YrDesignToken.form.color,
                           value: value,
                           groupValue: groupValue.value,
                           onChanged: (value) => groupValue.value = value!))
