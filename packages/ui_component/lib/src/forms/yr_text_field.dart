@@ -1,19 +1,19 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:ui_component/src/design_token.dart';
 import 'package:ui_component/src/forms/yr_text.dart';
 
-class YrFormField extends StatefulWidget {
+import 'yr_form_warp.dart';
+
+class YrTextField extends StatefulWidget {
   final String data;
 
-  const YrFormField(this.data, {super.key});
+  const YrTextField(this.data, {super.key});
 
   @override
-  State<YrFormField> createState() => _YrFormFieldState();
+  State<YrTextField> createState() => _YrTextFieldState();
 }
 
-class _YrFormFieldState extends State<YrFormField> {
+class _YrTextFieldState extends State<YrTextField> {
   final FocusScopeNode focusScopeNode = FocusScopeNode();
 
   @override
@@ -22,14 +22,12 @@ class _YrFormFieldState extends State<YrFormField> {
       node: focusScopeNode,
       onFocusChange: (bool onFocus) {
         setState(() {});
-
       },
-      child: SizedBox(
-        width: YrDesignToken.form.width,
+      child: YrFormWarp(
         child: Column(
           children: [
             YrText(
-              data: widget.data,
+              widget.data,
               color: focusScopeNode.hasFocus
                   ? YrDesignToken.form.color
                   : Colors.grey,
