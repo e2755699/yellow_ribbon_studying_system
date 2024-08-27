@@ -35,6 +35,10 @@ enum YrTheme {
     return isDark ? YrTheme.dark : YrTheme.light;
   }
 
+  ThemeMode getThemeMode(){
+    return isDark ? ThemeMode.dark : ThemeMode.light;
+  }
+
   ThemeData getThemeData() {
     return isDark
         ? ThemeData(
