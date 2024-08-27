@@ -23,13 +23,52 @@ enum YrDesignToken {
 }
 
 enum YrTheme {
-  light(form: YrDesignToken.form),
-  dark(form: YrDesignToken.formDarkMode);
+  light(form: YrDesignToken.form, isDark: false),
+  dark(form: YrDesignToken.formDarkMode, isDark: true);
+
   final YrDesignToken form;
+  final bool isDark;
 
-  const YrTheme({required this.form});
+  const YrTheme({required this.form, this.isDark = false});
 
-  static YrTheme fromSystem(bool isDark) {
+  factory YrTheme.fromSystem(bool isDark) {
     return isDark ? YrTheme.dark : YrTheme.light;
+  }
+
+  ThemeData getThemeData() {
+    return isDark
+        ? ThemeData(
+            brightness: Brightness.dark,
+            primaryColor: Colors.amber,
+            secondaryHeaderColor: Colors.red,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.black,
+            ),
+            floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colors.amber,
+            ),
+            colorScheme: const ColorScheme.dark(
+              primary: Colors.amber,
+              secondary: Colors.cyan,
+            ),
+          )
+        : ThemeData.light();
+  }
+
+  ThemeData _buildDarkTheme() {
+    return ThemeData(
+      brightness: Brightness.dark,
+      primaryColor: Colors.amber,
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.black,
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: Colors.amber,
+      ),
+      colorScheme: ColorScheme.dark(
+        primary: Colors.amber,
+        secondary: Colors.cyan,
+      ),
+    );
   }
 }
