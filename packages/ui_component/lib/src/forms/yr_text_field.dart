@@ -9,7 +9,9 @@ import 'yr_form_warp.dart';
 class YrTextField extends StatefulWidget {
   final String data;
 
-  const YrTextField(this.data, {super.key});
+  final YrTheme themeMode;
+
+  const YrTextField(this.data, {super.key, required this.themeMode});
 
   @override
   State<YrTextField> createState() => _YrTextFieldState();
@@ -61,6 +63,6 @@ class _YrTextFieldState extends State<YrTextField> {
       return Colors.grey;
     }
 
-    return state.theme.isDark ? Color(0x8021CE55) : Color(0xFFE24429);
+    return widget.themeMode.isDark ? Color(0x8021CE55) : Color(0xFFE24429);
   }
 }
