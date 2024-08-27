@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yellow_ribbon_studying_system/bloc/yr_theme/yr_theme_cubit.dart';
 import 'package:yellow_ribbon_studying_system/page/main_screen.dart';
 import 'package:ui_component/ui_component.dart';
 

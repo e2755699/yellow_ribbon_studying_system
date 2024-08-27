@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yellow_ribbon_studying_system/bloc/yr_nav/yr_nav_cubit.dart';
-import 'package:yellow_ribbon_studying_system/bloc/yr_nav/yr_nav_cubit.dart';
-import 'package:yellow_ribbon_studying_system/bloc/yr_theme/yr_theme_cubit.dart';
+import 'package:ui_component/ui_component.dart';
 import 'package:yellow_ribbon_studying_system/page/student_info_screen.dart';
 
 class MainScreen extends StatelessWidget {

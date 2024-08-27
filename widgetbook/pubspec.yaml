@@ -11,11 +11,18 @@ dependencies:
     sdk: flutter
   ui_component:
     path: ../packages/ui_component
+  widgetbook: ^3.8.1
+  widgetbook_annotation: ^3.1.0
+  flutter_bloc: ^8.1.6
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  build_runner:
+  widgetbook_generator: ^3.8.0
+
 
 flutter:
   uses-material-design: true
