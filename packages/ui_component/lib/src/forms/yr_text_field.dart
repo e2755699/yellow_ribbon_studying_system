@@ -22,43 +22,39 @@ class _YrTextFieldState extends State<YrTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<YrThemeCubit, YrThemeState>(
-      builder: (context, state) {
-        return FocusScope(
-          node: focusScopeNode,
-          onFocusChange: (bool onFocus) {
-            setState(() {});
-          },
-          child: YrFormWarp(
-            child: Column(
-              children: [
-                YrText(
-                  widget.data,
-                  color: getTextColor(state),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: YrDesignToken.form.color),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: YrDesignToken.form.color),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: YrDesignToken.form.color),
-                    ),
-                  ),
-                  cursorColor: YrDesignToken.form.color,
-                ),
-              ],
-            ),
-          ),
-        );
+    return FocusScope(
+      node: focusScopeNode,
+      onFocusChange: (bool onFocus) {
+        setState(() {});
       },
+      child: YrFormWarp(
+        child: Column(
+          children: [
+            YrText(
+              widget.data,
+              color: getTextColor(),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: YrDesignToken.form.color),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: YrDesignToken.form.color),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: YrDesignToken.form.color),
+                ),
+              ),
+              cursorColor: YrDesignToken.form.color,
+            ),
+          ],
+        ),
+      ),
     );
   }
 
-  Color getTextColor(YrThemeState state) {
+  Color getTextColor() {
     if (!focusScopeNode.hasFocus) {
       return Colors.grey;
     }
