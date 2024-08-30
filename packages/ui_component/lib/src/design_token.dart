@@ -3,39 +3,41 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 enum YrDesignToken {
-  form(
-    color: Color(0xFFE24429),
-    width: 300,
+  light(
+    form: DsForm(
+      textColor: Color(0xFFE24429),
+      width: 300,
+    ),
     rowGap: 4,
   ),
-  formDarkMode(
-    color: Color(0x8021CE55),
-    width: 300,
+  dark(
+    form: DsForm(
+      textColor: Color(0x8021CE55),
+      width: 300,
+    ),
     rowGap: 4,
   );
 
-  final Color color;
-  final double width;
+  final DsForm form;
   final double rowGap;
 
-  const YrDesignToken(
-      {required this.color, required this.width, required this.rowGap});
+  const YrDesignToken({required this.form, required this.rowGap});
 }
 
 enum YrTheme {
-  light(form: YrDesignToken.form, isDark: false),
-  dark(form: YrDesignToken.formDarkMode, isDark: true);
+  light(designToken: YrDesignToken.light, isDark: false),
+  dark(designToken: YrDesignToken.dark, isDark: true);
 
-  final YrDesignToken form;
+  final YrDesignToken designToken;
   final bool isDark;
 
-  const YrTheme({required this.form, this.isDark = false});
+  const YrTheme({required this.designToken, this.isDark = false});
 
   factory YrTheme.fromSystem(bool isDark) {
     return isDark ? YrTheme.dark : YrTheme.light;
   }
 
-  ThemeMode getThemeMode(){
+  ThemeMode getThemeMode() {
     return isDark ? ThemeMode.dark : ThemeMode.light;
   }
 
@@ -58,21 +60,11 @@ enum YrTheme {
           )
         : ThemeData.light();
   }
+}
 
-  ThemeData _buildDarkTheme() {
-    return ThemeData(
-      brightness: Brightness.dark,
-      primaryColor: Colors.amber,
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.black,
-      ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Colors.amber,
-      ),
-      colorScheme: ColorScheme.dark(
-        primary: Colors.amber,
-        secondary: Colors.cyan,
-      ),
-    );
-  }
+class DsForm {
+  final Color textColor;
+  final int width;
+
+  const DsForm({required this.textColor, required this.width});
 }

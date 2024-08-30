@@ -18,7 +18,7 @@ class YrSelector extends StatelessWidget {
       child: Row(
         children: [
           YrText(data),
-          Gap(theme.form.rowGap),
+          Gap(theme.designToken.rowGap),
           DropdownMenu(
               dropdownMenuEntries: items.map((item) {
             return DropdownMenuEntry(value: items.indexOf(item), label: item);

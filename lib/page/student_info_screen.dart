@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_component/ui_component.dart';
 
 class StudentInfoScreen extends StatelessWidget {
@@ -25,13 +26,17 @@ class StudentInfoScreen extends StatelessWidget {
         // wireframe for each widget.
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const YrTextField("姓名"),
+          YrTextField("姓名",
+              themeMode: context.read<YrThemeCubit>().state.theme),
           YrRadio(
             "性別",
             map: const ["m", "w"],
             defaultValue: 'm',
           ),
-          const YrTextField("學校"),
+          YrTextField(
+            "學校",
+            themeMode: context.read<YrThemeCubit>().state.theme,
+          ),
           const YrSelector(
             "年級",
             items: [

@@ -37,16 +37,16 @@ class _YrTextFieldState extends State<YrTextField> {
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: YrDesignToken.form.color),
+                  borderSide: BorderSide(color: widget.themeMode.designToken.form.textColor),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: YrDesignToken.form.color),
+                  borderSide: BorderSide(color: widget.themeMode.designToken.form.textColor),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: YrDesignToken.form.color),
+                  borderSide: BorderSide(color: widget.themeMode.designToken.form.textColor),
                 ),
               ),
-              cursorColor: YrDesignToken.form.color,
+              cursorColor: widget.themeMode.designToken.form.textColor,
             ),
           ],
         ),
@@ -59,6 +59,6 @@ class _YrTextFieldState extends State<YrTextField> {
       return Colors.grey;
     }
 
-    return widget.themeMode.isDark ? Color(0x8021CE55) : Color(0xFFE24429);
+    return widget.themeMode.designToken.form.textColor;
   }
 }
