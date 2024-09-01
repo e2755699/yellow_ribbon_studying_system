@@ -11,7 +11,11 @@ class YrFormWarp extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
-        width: YrDesignToken.form.width,
+        width:
+            YrTheme.fromSystem(Theme.of(context).brightness == Brightness.dark)
+                .designToken
+                .form
+                .width,
         child: child,
       ),
     );

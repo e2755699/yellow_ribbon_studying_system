@@ -26,7 +26,12 @@ class YrRadio extends StatelessWidget {
                 return Row(
                   children: map
                       .map((value) => Radio<String>(
-                          activeColor: YrDesignToken.form.color,
+                          activeColor: YrTheme.fromSystem(
+                                  Theme.of(context).brightness ==
+                                      Brightness.dark)
+                              .designToken
+                              .form
+                              .textColor,
                           value: value,
                           groupValue: groupValue.value,
                           onChanged: (value) => groupValue.value = value!))

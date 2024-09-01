@@ -64,7 +64,7 @@ enum YrTheme {
 
 class DsForm {
   final Color textColor;
-  final int width;
+  final double width;
 
   const DsForm({required this.textColor, required this.width});
 }

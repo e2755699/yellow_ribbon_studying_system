@@ -16,8 +16,8 @@ class YrText extends StatelessWidget {
           color: color ??
               YrTheme.fromSystem(
                       Theme.of(context).brightness == Brightness.dark)
-                  .designToken
-                  .color),
+                  .designToken.form
+                  .textColor),
     );
   }
 }
