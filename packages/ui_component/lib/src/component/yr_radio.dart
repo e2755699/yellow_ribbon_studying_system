@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_component/src/design_token.dart';
-import 'package:ui_component/src/forms/yr_form_warp.dart';
-import 'package:ui_component/src/forms/yr_text_field.dart';
-import 'package:ui_component/src/forms/yr_text.dart';
+import 'package:ui_component/src/component/yr_form_warp.dart';
+import 'package:ui_component/src/component/yr_text.dart';
 
 class YrRadio extends StatelessWidget {
   final List<String> map;

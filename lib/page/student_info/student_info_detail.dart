@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_component/ui_component.dart';
 
-class StudentInfoScreen extends StatelessWidget {
-  const StudentInfoScreen({super.key});
+class StudentInfoDetail extends StatelessWidget {
+  const StudentInfoDetail({super.key});
 
   @override
   Widget build(BuildContext context) {

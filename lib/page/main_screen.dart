@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_component/ui_component.dart';
-import 'package:yellow_ribbon_studying_system/page/student_info_screen.dart';
+import 'package:yellow_ribbon_studying_system/page/student_info/student_info_detail.dart';
+import 'package:yellow_ribbon_studying_system/page/student_info/student_info_list.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -13,36 +14,50 @@ class MainScreen extends StatelessWidget {
       child: Builder(builder: (context) {
         return BlocBuilder<YrNavCubit, YrNavState>(
           builder: (context, state) {
-            return Scaffold(
-              appBar: AppBar(
-                backgroundColor: Theme.of(context).secondaryHeaderColor,
-                title: const Text("學生基本資料"),
-              ),
-              body: Row(
-                children: [
-                  NavigationRail(destinations: [
-                    _buildStudentInfoNavBtn(context),
-                    _buildClassInfoNavBtn(context)
-                  ], selectedIndex: state.navIndex),
-                  const StudentInfoScreen(),
-                ],
-              ),
-              // This trailing comma makes auto-formatting nicer for build methods.
-              floatingActionButton: FloatingActionButton(
-                child: const Icon(Icons.toggle_on),
-                onPressed: () {
-                  final yrCubit = context.read<YrThemeCubit>();
-                  if (ThemeMode.dark == yrCubit.state.theme.getThemeMode()) {
-                    yrCubit.changedMode(ThemeMode.light);
-                  } else {
-                    yrCubit.changedMode(ThemeMode.dark);
-                  }
-                },
-              ),
+            return Row(
+              children: [
+                _nav(context, state),
+                Expanded(
+                  child: _content(context),
+                ),
+              ],
             );
           },
         );
       }),
+    );
+  }
+
+  NavigationRail _nav(BuildContext context, YrNavState state) {
+    return NavigationRail(
+      destinations: [
+        _buildStudentInfoNavBtn(context),
+        _buildClassInfoNavBtn(context)
+      ],
+      selectedIndex: state.navIndex,
+      labelType: NavigationRailLabelType.all,
+    );
+  }
+
+  Widget _content(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).secondaryHeaderColor,
+        title: const Text("學生基本資料"),
+      ),
+      body: const StudentInfoList(),
+      // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.toggle_on),
+        onPressed: () {
+          final yrCubit = context.read<YrThemeCubit>();
+          if (ThemeMode.dark == yrCubit.state.theme.getThemeMode()) {
+            yrCubit.changedMode(ThemeMode.light);
+          } else {
+            yrCubit.changedMode(ThemeMode.dark);
+          }
+        },
+      ),
     );
   }
 
@@ -65,7 +80,8 @@ class MainScreen extends StatelessWidget {
 
   NavigationRailDestination _buildClassInfoNavBtn(BuildContext context) =>
       NavigationRailDestination(
-          icon: _buildNavIcon(context, const Icon(Icons.school_outlined), 1),
-          selectedIcon: _buildNavIcon(context, const Icon(Icons.school), 1),
-          label: const Text("課程資料"));
+        icon: _buildNavIcon(context, const Icon(Icons.school_outlined), 1),
+        selectedIcon: _buildNavIcon(context, const Icon(Icons.school), 1),
+        label: Text("課程資料"),
+      );
 }
