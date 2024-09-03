@@ -31,8 +31,9 @@ class MainScreen extends StatelessWidget {
     );
   }
 
-  NavigationRail _nav(BuildContext context, YrNavState state) {
+  Widget _nav(BuildContext context, YrNavState state) {
     return NavigationRail(
+        backgroundColor: Color(0xFFEFE2AF),
       destinations: [
         _buildStudentInfoNavBtn(context),
         _buildClassInfoNavBtn(context)
@@ -45,7 +46,7 @@ class MainScreen extends StatelessWidget {
   Widget _content(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).secondaryHeaderColor,
+        backgroundColor: Color(0xFFF3E9C0),
         title: const Text("學生基本資料"),
       ),
       body: const StudentInfoList(),
@@ -72,7 +73,7 @@ class MainScreen extends StatelessWidget {
               context, const Icon(Icons.supervised_user_circle), 0),
           label: const Text("學生資料"));
 
-  InkWell _buildNavIcon(BuildContext context, Icon icon, int index) {
+  Widget _buildNavIcon(BuildContext context, Icon icon, int index) {
     return InkWell(
       child: icon,
       onTap: () {

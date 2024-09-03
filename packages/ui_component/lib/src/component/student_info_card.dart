@@ -13,7 +13,7 @@ class StudentInfoCard extends StatelessWidget {
         height: 80,
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
-          color: Color(0x5965558F),
+          color: Color(0xFFFBF9ED),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),

@@ -8,13 +8,16 @@ class StudentInfoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        StudentInfoCard(),
-        StudentInfoCard(),
-      ],
+    return Container(
+      color: Color(0xFFE8E0D1),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          StudentInfoCard(),
+          StudentInfoCard(),
+        ],
+      ),
     );
   }
 }
