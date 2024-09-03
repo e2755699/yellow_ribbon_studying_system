@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_component/ui_component.dart';
-import 'package:yellow_ribbon_studying_system/page/student_info/student_info_detail.dart';
+import 'package:yellow_ribbon_studying_system/cubit/yr_nav/yr_nav_cubit.dart';
+import 'package:yellow_ribbon_studying_system/enum/yr_page.dart';
 import 'package:yellow_ribbon_studying_system/page/student_info/student_info_list.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  final YrPage page;
+
+  const MainScreen({super.key, required  this.page});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => YrNavCubit(),
+      create: (context) => YrNavCubit(page),
       child: Builder(builder: (context) {
         return BlocBuilder<YrNavCubit, YrNavState>(
           builder: (context, state) {
@@ -34,7 +37,7 @@ class MainScreen extends StatelessWidget {
         _buildStudentInfoNavBtn(context),
         _buildClassInfoNavBtn(context)
       ],
-      selectedIndex: state.navIndex,
+      selectedIndex: state.index,
       labelType: NavigationRailLabelType.all,
     );
   }

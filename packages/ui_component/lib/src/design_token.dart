@@ -25,13 +25,13 @@ enum YrDesignToken {
 }
 
 enum YrTheme {
-  light(designToken: YrDesignToken.light, isDark: false),
-  dark(designToken: YrDesignToken.dark, isDark: true);
+  light(designToken: YrDesignToken.light),
+  dark(designToken: YrDesignToken.dark);
 
   final YrDesignToken designToken;
-  final bool isDark;
+  bool get isDark => designToken == YrDesignToken.light;
 
-  const YrTheme({required this.designToken, this.isDark = false});
+  const YrTheme({required this.designToken});
 
   factory YrTheme.fromSystem(bool isDark) {
     return isDark ? YrTheme.dark : YrTheme.light;

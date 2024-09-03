@@ -7,12 +7,12 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'main.directories.g.dart';
 
 void main() {
-  runApp(const WidgetbookApp());
+  runApp(const WidgetbookGallery());
 }
 
 @widgetbook.App()
-class WidgetbookApp extends StatelessWidget {
-  const WidgetbookApp({super.key});
+class WidgetbookGallery extends StatelessWidget {
+  const WidgetbookGallery({super.key});
 
   @override
   Widget build(BuildContext context) {

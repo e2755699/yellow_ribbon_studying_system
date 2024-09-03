@@ -10,24 +10,19 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:widgetbook/widgetbook.dart' as _i1;
-import 'package:widgetbook_gallery/usecases/yr_text_field.dart' as _i2;
+import 'package:widgetbook_gallery/usecases/page/student_info_detail.dart'
+    as _i2;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
-    name: 'component',
+    name: 'page',
     children: [
-      _i1.WidgetbookComponent(
-        name: 'YrTextField',
-        useCases: [
-          _i1.WidgetbookUseCase(
-            name: 'Dark',
-            builder: _i2.buildDarkTextField,
-          ),
-          _i1.WidgetbookUseCase(
-            name: 'Light',
-            builder: _i2.buildLightTextField,
-          ),
-        ],
+      _i1.WidgetbookLeafComponent(
+        name: 'MainScreen',
+        useCase: _i1.WidgetbookUseCase(
+          name: 'main page',
+          builder: _i2.buildLightTextField,
+        ),
       )
     ],
   )

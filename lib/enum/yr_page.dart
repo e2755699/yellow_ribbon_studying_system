@@ -1,0 +1,4 @@
+enum YrPage{
+  studentInfo,
+  classInfo;
+}

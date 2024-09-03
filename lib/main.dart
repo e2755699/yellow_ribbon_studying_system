@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yellow_ribbon_studying_system/enum/yr_page.dart';
 import 'package:yellow_ribbon_studying_system/page/main_screen.dart';
 import 'package:ui_component/ui_component.dart';
 
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
               title: '學生成長系統',
               themeMode: state.theme.getThemeMode(),
               darkTheme: YrTheme.dark.getThemeData(),
-              home: const MainScreen(),
+              home: const MainScreen(page: YrPage.studentInfo,),
             );
           },
         );

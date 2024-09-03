@@ -2,16 +2,16 @@ part of 'yr_nav_cubit.dart';
 
 @immutable
 sealed class YrNavState {
-  final YrNav yrNav;
+  final YrPage page;
 
-  get navIndex => yrNav.index;
+  get index => page.index;
 
-  const YrNavState(this.yrNav);
+  const YrNavState(this.page);
 }
 
 final class YrNavInitial extends YrNavState {
-  const YrNavInitial(super.yrNav);
+  const YrNavInitial(super.page);
 }
 final class YrNavChanged extends YrNavState {
-  const YrNavChanged(super.yrNav);
+  const YrNavChanged(super.page);
 }
