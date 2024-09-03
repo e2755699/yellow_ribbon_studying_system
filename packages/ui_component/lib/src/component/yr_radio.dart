@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_component/src/design_token.dart';
 import 'package:ui_component/src/component/yr_form_warp.dart';
 import 'package:ui_component/src/component/yr_text.dart';
+
+import '../../ui_component.dart';
 
 class YrRadio extends StatelessWidget {
   final List<String> map;
@@ -25,12 +28,7 @@ class YrRadio extends StatelessWidget {
                 return Row(
                   children: map
                       .map((value) => Radio<String>(
-                          activeColor: YrTheme.fromSystem(
-                                  Theme.of(context).brightness ==
-                                      Brightness.dark)
-                              .designToken
-                              .form
-                              .textColor,
+                          activeColor: context.read<YrThemeCubit>().state.theme.color.text.active.color,
                           value: value,
                           groupValue: groupValue.value,
                           onChanged: (value) => groupValue.value = value!))
@@ -42,3 +40,4 @@ class YrRadio extends StatelessWidget {
     );
   }
 }
+

@@ -2,69 +2,34 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-enum YrDesignToken {
-  light(
-    form: DsForm(
-      textColor: Color(0xFFE24429),
-      width: 300,
-    ),
-    rowGap: 4,
-  ),
-  dark(
-    form: DsForm(
-      textColor: Color(0x8021CE55),
-      width: 300,
-    ),
-    rowGap: 4,
-  );
+enum YrTheme{
+  light(color: YrColor.light),
+  dark(color : YrColor.dark);
 
-  final DsForm form;
-  final double rowGap;
+  final YrColor color;
+  final double space = 300;
 
-  const YrDesignToken({required this.form, required this.rowGap});
+  const YrTheme({required this.color});
 }
 
-enum YrTheme {
-  light(designToken: YrDesignToken.light),
-  dark(designToken: YrDesignToken.dark);
+enum YrColor{
+  light(primaryColor: Color(0xFFF5CC00), secondaryColor : Color(0xFFF3E9C0), text: ),
+  dark(primaryColor: Color(0xFF292200), secondaryColor : Color(0xFFF3E9C0), text: );
 
-  final YrDesignToken designToken;
-  bool get isDark => designToken == YrDesignToken.light;
+  const YrColor({required this.primaryColor,required this.secondaryColor , required this.text});
+  final Color primaryColor;
+  final Color secondaryColor;
 
-  const YrTheme({required this.designToken});
-
-  factory YrTheme.fromSystem(bool isDark) {
-    return isDark ? YrTheme.dark : YrTheme.light;
-  }
-
-  ThemeMode getThemeMode() {
-    return isDark ? ThemeMode.dark : ThemeMode.light;
-  }
-
-  ThemeData getThemeData() {
-    return isDark
-        ? ThemeData(
-            brightness: Brightness.dark,
-            primaryColor: Colors.amber,
-            secondaryHeaderColor: Colors.red,
-            appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.black,
-            ),
-            floatingActionButtonTheme: const FloatingActionButtonThemeData(
-              backgroundColor: Colors.amber,
-            ),
-            colorScheme: const ColorScheme.dark(
-              primary: Colors.amber,
-              secondary: Colors.cyan,
-            ),
-          )
-        : ThemeData.light();
-  }
+  final YrTextColor text;
 }
 
-class DsForm {
-  final Color textColor;
-  final double width;
-
-  const DsForm({required this.textColor, required this.width});
+enum YrTextColor {
+  // defaulted(color : Color(0xFF7A6600)),
+  // active(color : Color(value));
+  //
+  // final Color color;
+  // const YrTextColor({required　this.color});
+  defaulted,
+  active;
 }
+// theme.color.text.active = colors.red

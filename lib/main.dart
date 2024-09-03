@@ -27,7 +27,9 @@ class _MyAppState extends State<MyApp> {
               title: '學生成長系統',
               themeMode: state.theme.getThemeMode(),
               darkTheme: YrTheme.dark.getThemeData(),
-              home: const MainScreen(page: YrPage.studentInfo,),
+              home: const MainScreen(
+                page: YrPage.studentInfo,
+              ),
             );
           },
         );
@@ -35,4 +37,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-

@@ -46,7 +46,7 @@ class MainScreen extends StatelessWidget {
   Widget _content(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFF3E9C0),
+        backgroundColor: context.read<DsTheme>(),
         title: const Text("學生基本資料"),
       ),
       body: const StudentInfoList(),
