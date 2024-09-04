@@ -9,10 +9,10 @@ import 'package:ui_component/ui_component.dart';
 class YrSelector extends StatelessWidget {
   final String data;
   final List<String> items;
-  final YrTheme theme;
+  final DsTheme theme;
 
   const YrSelector(this.data,
-      {super.key, required this.items, this.theme = YrTheme.dark});
+      {super.key, required this.items, this.theme = DsTheme.dark});
 
   @override
   Widget build(BuildContext context) {

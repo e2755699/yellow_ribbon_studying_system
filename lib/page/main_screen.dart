@@ -49,9 +49,11 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor:
             context.read<YrThemeCubit>().state.theme.color.primaryColor,
-        title: const Text("學生基本資料"),
+        title: YrText("學生基本資料"),
       ),
-      body:  StudentInfoList(),
+      backgroundColor:
+          context.read<YrThemeCubit>().state.theme.color.backgroundColor,
+      body: StudentInfoList(),
       // This trailing comma makes auto-formatting nicer for build methods.
       floatingActionButton: FloatingActionButton(
         child: context.read<YrThemeCubit>().state.theme.isDark
@@ -69,18 +71,24 @@ class MainScreen extends StatelessWidget {
     );
   }
 
-  NavigationRailDestination _buildStudentInfoNavBtn(BuildContext context) =>
-      NavigationRailDestination(
+  NavigationRailDestination _buildStudentInfoNavBtn(BuildContext context) {
+    return NavigationRailDestination(
           icon: _buildNavIcon(
-              context, const Icon(Icons.supervised_user_circle_outlined), 0),
+              context,
+              Icon(
+                Icons.supervised_user_circle_outlined,
+                color: context.read<YrThemeCubit>().state.theme.color.text.defaulted,
+              ),
+              0),
           selectedIcon: _buildNavIcon(
               context, const Icon(Icons.supervised_user_circle), 0),
-          label: const Text("學生資料"));
+          label: YrText("學生資料"));
+  }
 
   Widget _buildNavIcon(BuildContext context, Icon icon, int index) {
-    return InkWell(
+    return YrButton(
       child: icon,
-      onTap: () {
+      onPressed: () {
         context.read<YrNavCubit>().changedNavIndex(index);
       },
     );
@@ -90,6 +98,6 @@ class MainScreen extends StatelessWidget {
       NavigationRailDestination(
         icon: _buildNavIcon(context, const Icon(Icons.school_outlined), 1),
         selectedIcon: _buildNavIcon(context, const Icon(Icons.school), 1),
-        label: Text("課程資料"),
+        label: YrText("課程資料"),
       );
 }

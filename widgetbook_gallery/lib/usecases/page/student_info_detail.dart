@@ -10,7 +10,7 @@ import 'package:ui_component/ui_component.dart';
 Widget buildLightTextField(BuildContext context) {
   return BlocProvider(
       create: (BuildContext context) {
-        return YrThemeCubit(YrTheme.light);
+        return YrThemeCubit(DsTheme.light);
       },
       child: const MainScreen(page : YrPage.studentInfo));
 }

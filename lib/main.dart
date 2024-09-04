@@ -19,14 +19,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => YrThemeCubit(YrTheme.light),
+      create: (context) => YrThemeCubit(DsTheme.light),
       child: Builder(builder: (context) {
         return BlocBuilder<YrThemeCubit, YrThemeState>(
           builder: (context, state) {
             return MaterialApp(
               title: '學生成長系統',
               themeMode: state.getThemeMode,
-              darkTheme: YrTheme.dark.getThemeData(),
+              darkTheme: DsTheme.dark.getThemeData(),
               home: MainScreen(
                 page: YrPage.studentInfo,
               ),

@@ -9,7 +9,7 @@ import 'yr_form_warp.dart';
 class YrTextField extends StatefulWidget {
   final String data;
 
-  final YrTheme themeMode;
+  final DsTheme themeMode;
 
   const YrTextField(this.data, {super.key, required this.themeMode});
 

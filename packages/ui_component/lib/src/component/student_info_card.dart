@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:ui_component/src/component/yr_button.dart';
 import 'package:ui_component/src/component/yr_text.dart';
 import 'package:ui_component/ui_component.dart';
 
@@ -19,6 +20,15 @@ class StudentInfoCard extends StatelessWidget {
           color: context.read<YrThemeCubit>().state.theme.color.secondaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
+            side: BorderSide(
+              color: context
+                  .read<YrThemeCubit>()
+                  .state
+                  .theme
+                  .color
+                  .primaryColor, // 邊框顏色設定為灰色
+              width: 2, // 邊框寬度設定為 2 (根據需求調整)
+            ),
           ),
         ),
         child: Container(
@@ -31,14 +41,26 @@ class StudentInfoCard extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: ShapeDecoration(
-                  color: context.read<YrThemeCubit>().state.theme.color.text.defaulted,
+                  color: context
+                      .read<YrThemeCubit>()
+                      .state
+                      .theme
+                      .color
+                      .text
+                      .defaulted,
                   shape: OvalBorder(),
                 ),
                 child: Center(
                   child: Text(
                     'A',
                     style: TextStyle(
-                      color: context.read<YrThemeCubit>().state.theme.color.text.active,
+                      color: context
+                          .read<YrThemeCubit>()
+                          .state
+                          .theme
+                          .color
+                          .text
+                          .active,
                       fontSize: 16,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
@@ -62,10 +84,17 @@ class StudentInfoCard extends StatelessWidget {
                   ),
                 ],
               ),
+              YrButton(text: "View", onPressed: (){}),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                 decoration: ShapeDecoration(
-                  color: context.read<YrThemeCubit>().state.theme.color.text.active,
+                  color: context
+                      .read<YrThemeCubit>()
+                      .state
+                      .theme
+                      .color
+                      .secondaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
                   ),
@@ -80,4 +109,5 @@ class StudentInfoCard extends StatelessWidget {
       ),
     );
   }
+
 }

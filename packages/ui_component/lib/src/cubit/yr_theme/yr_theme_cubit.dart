@@ -6,10 +6,10 @@ import 'package:ui_component/ui_component.dart';
 part 'yr_theme_state.dart';
 
 class YrThemeCubit extends Cubit<YrThemeState> {
-  YrThemeCubit(YrTheme theme) : super(YrThemeInitial(theme));
+  YrThemeCubit(DsTheme theme) : super(YrThemeInitial(theme));
 
   void changedMode(ThemeMode themeMode) {
     emit(YrThemeChanged(
-        themeMode == ThemeMode.dark ? YrTheme.dark : YrTheme.light));
+        themeMode == ThemeMode.dark ? DsTheme.dark : DsTheme.light));
   }
 }

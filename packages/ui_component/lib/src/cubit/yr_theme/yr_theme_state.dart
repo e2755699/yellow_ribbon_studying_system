@@ -2,7 +2,7 @@ part of 'yr_theme_cubit.dart';
 
 @immutable
 sealed class YrThemeState {
-  final YrTheme theme;
+  final DsTheme theme;
 
   const YrThemeState(this.theme);
 
