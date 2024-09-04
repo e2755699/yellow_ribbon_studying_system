@@ -59,8 +59,7 @@ class StudentInfoCard extends StatelessWidget {
                           .state
                           .theme
                           .color
-                          .text
-                          .active,
+                          .secondaryColor,
                       fontSize: 16,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,

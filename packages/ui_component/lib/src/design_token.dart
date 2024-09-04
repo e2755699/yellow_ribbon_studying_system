@@ -27,10 +27,17 @@ enum DsTheme {
 }
 
 enum DsButton {
-  light(defaulted: DsColorToken.yellow10,disable: DsColorToken.yellow1, onPress: DsColorToken.yellow7),
-  dark(defaulted: DsColorToken.yellow5,disable: DsColorToken.yellow1, onPress: DsColorToken.yellow7);
+  light(
+      defaulted: DsColorToken.yellow10,
+      disable: DsColorToken.yellow1,
+      onPress: DsColorToken.yellow7),
+  dark(
+      defaulted: DsColorToken.yellow5,
+      disable: DsColorToken.yellow1,
+      onPress: DsColorToken.yellow7);
 
-  const DsButton({required this.defaulted,required this.disable,required this.onPress});
+  const DsButton(
+      {required this.defaulted, required this.disable, required this.onPress});
 
   final Color defaulted;
   final Color disable;
@@ -70,12 +77,12 @@ enum DsColor {
 
 enum DsTextColor {
   light(
-    defaulted: DsColorToken.yellow1,
+    defaulted: DsColorToken.yellow4,
     active: DsColorToken.yellow3,
   ),
   dark(
     defaulted: DsColorToken.yellow10,
-    active: DsColorToken.yellow3,
+    active: DsColorToken.yellow6,
   );
 
   final Color active;

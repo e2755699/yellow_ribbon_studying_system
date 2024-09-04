@@ -73,16 +73,11 @@ class MainScreen extends StatelessWidget {
 
   NavigationRailDestination _buildStudentInfoNavBtn(BuildContext context) {
     return NavigationRailDestination(
-          icon: _buildNavIcon(
-              context,
-              Icon(
-                Icons.supervised_user_circle_outlined,
-                color: context.read<YrThemeCubit>().state.theme.color.text.defaulted,
-              ),
-              0),
-          selectedIcon: _buildNavIcon(
-              context, const Icon(Icons.supervised_user_circle), 0),
-          label: YrText("學生資料"));
+        icon: _buildNavIcon(
+            context, Icon(Icons.supervised_user_circle_outlined), 0),
+        selectedIcon:
+            _buildNavIcon(context, const Icon(Icons.supervised_user_circle), 0),
+        label: YrText("學生資料"));
   }
 
   Widget _buildNavIcon(BuildContext context, Icon icon, int index) {
