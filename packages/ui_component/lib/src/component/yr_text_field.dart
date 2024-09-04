@@ -37,16 +37,16 @@ class _YrTextFieldState extends State<YrTextField> {
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: widget.themeMode.designToken.form.textColor),
+                  borderSide: BorderSide(color: context.read<YrThemeCubit>().state.theme.color.text.defaulted),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: widget.themeMode.designToken.form.textColor),
+                  borderSide: BorderSide(color: context.read<YrThemeCubit>().state.theme.color.text.defaulted),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: widget.themeMode.designToken.form.textColor),
+                  borderSide: BorderSide(color: context.read<YrThemeCubit>().state.theme.color.text.defaulted),
                 ),
               ),
-              cursorColor: widget.themeMode.designToken.form.textColor,
+              cursorColor: context.read<YrThemeCubit>().state.theme.color.text.defaulted,
             ),
           ],
         ),
@@ -59,6 +59,6 @@ class _YrTextFieldState extends State<YrTextField> {
       return Colors.grey;
     }
 
-    return widget.themeMode.designToken.form.textColor;
+    return context.read<YrThemeCubit>().state.theme.color.text.active;
   }
 }

@@ -8,7 +8,7 @@ import 'package:yellow_ribbon_studying_system/page/student_info/student_info_lis
 class MainScreen extends StatelessWidget {
   final YrPage page;
 
-  const MainScreen({super.key, required  this.page});
+  const MainScreen({super.key, required this.page});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,8 @@ class MainScreen extends StatelessWidget {
 
   Widget _nav(BuildContext context, YrNavState state) {
     return NavigationRail(
-        backgroundColor: Color(0xFFEFE2AF),
+      backgroundColor:
+          context.read<YrThemeCubit>().state.theme.color.primaryColor,
       destinations: [
         _buildStudentInfoNavBtn(context),
         _buildClassInfoNavBtn(context)
@@ -46,16 +47,19 @@ class MainScreen extends StatelessWidget {
   Widget _content(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.read<DsTheme>(),
+        backgroundColor:
+            context.read<YrThemeCubit>().state.theme.color.primaryColor,
         title: const Text("學生基本資料"),
       ),
-      body: const StudentInfoList(),
+      body:  StudentInfoList(),
       // This trailing comma makes auto-formatting nicer for build methods.
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.toggle_on),
+        child: context.read<YrThemeCubit>().state.theme.isDark
+            ? Icon(Icons.toggle_off)
+            : Icon(Icons.toggle_on),
         onPressed: () {
           final yrCubit = context.read<YrThemeCubit>();
-          if (ThemeMode.dark == yrCubit.state.theme.getThemeMode()) {
+          if (yrCubit.state.theme.isDark) {
             yrCubit.changedMode(ThemeMode.light);
           } else {
             yrCubit.changedMode(ThemeMode.dark);

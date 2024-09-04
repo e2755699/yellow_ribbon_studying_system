@@ -3,7 +3,10 @@ part of 'yr_theme_cubit.dart';
 @immutable
 sealed class YrThemeState {
   final YrTheme theme;
+
   const YrThemeState(this.theme);
+
+  ThemeMode get getThemeMode => theme.isDark ? ThemeMode.dark : ThemeMode.light;
 }
 
 final class YrThemeInitial extends YrThemeState {

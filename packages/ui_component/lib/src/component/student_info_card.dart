@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:ui_component/src/component/yr_text.dart';
+import 'package:ui_component/ui_component.dart';
 
 class StudentInfoCard extends StatelessWidget {
   const StudentInfoCard({super.key});
@@ -13,7 +16,7 @@ class StudentInfoCard extends StatelessWidget {
         height: 80,
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
-          color: Color(0xFFFBF9ED),
+          color: context.read<YrThemeCubit>().state.theme.color.secondaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -28,14 +31,14 @@ class StudentInfoCard extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: ShapeDecoration(
-                  color: Color(0xFF65558F),
+                  color: context.read<YrThemeCubit>().state.theme.color.text.defaulted,
                   shape: OvalBorder(),
                 ),
                 child: Center(
                   child: Text(
                     'A',
                     style: TextStyle(
-                      color: Color(0xFFFEF7FF),
+                      color: context.read<YrThemeCubit>().state.theme.color.text.active,
                       fontSize: 16,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
@@ -47,13 +50,13 @@ class StudentInfoCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    child: Text(
+                    child: YrText(
                       '王小名',
                     ),
                   ),
                   const SizedBox(height: 4),
                   SizedBox(
-                    child: Text(
+                    child: YrText(
                       '勝利國小三年級',
                     ),
                   ),
@@ -62,17 +65,13 @@ class StudentInfoCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                 decoration: ShapeDecoration(
-                  color: Color(0xFFFF3B30),
+                  color: context.read<YrThemeCubit>().state.theme.color.text.active,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
                   ),
                 ),
-                child: Text(
+                child: YrText(
                   'view',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
                 ),
               ),
             ],

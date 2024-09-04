@@ -28,7 +28,7 @@ class YrRadio extends StatelessWidget {
                 return Row(
                   children: map
                       .map((value) => Radio<String>(
-                          activeColor: context.read<YrThemeCubit>().state.theme.color.text.active.color,
+                          activeColor: context.read<YrThemeCubit>().state.theme.color.text.active,
                           value: value,
                           groupValue: groupValue.value,
                           onChanged: (value) => groupValue.value = value!))

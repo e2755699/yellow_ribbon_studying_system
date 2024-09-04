@@ -25,9 +25,9 @@ class _MyAppState extends State<MyApp> {
           builder: (context, state) {
             return MaterialApp(
               title: '學生成長系統',
-              themeMode: state.theme.getThemeMode(),
+              themeMode: state.getThemeMode,
               darkTheme: YrTheme.dark.getThemeData(),
-              home: const MainScreen(
+              home: MainScreen(
                 page: YrPage.studentInfo,
               ),
             );
